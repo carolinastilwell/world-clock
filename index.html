@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World Clock</title>
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>World Clock</h1>
+      <header>
+        <h1>World Clock</h1>
+      </header>
 
       <select name="" id="">
         <option value="">Select a city</option>
@@ -16,17 +24,23 @@
         <option value="">Sao Paulo</option>
       </select>
 
-      <div class="cities">
-        <h2>London</h2>
-        <div class="date">9 of May</div>
-        <div class="time">14:31</div>
+      <div class="city">
+        <div>
+          <h2>London</h2>
+          <div class="date">9 of May</div>
+        </div>
+        <div class="time">10:31 <small>AM</small></div>
       </div>
-      <div class="cities">
-        <h2>Sao Paulo</h2>
-        <div class="date">9 of May</div>
-        <div class="time">14:31</div>
+
+      <div class="city">
+        <div>
+          <h2>Sao Paulo</h2>
+          <div class="date">9 of May</div>
+        </div>
+        <div class="time">10:31 <small>AM</small></div>
       </div>
     </div>
+
     <footer>
       Coded with ❤️ by
       <a href="https://github.com/carolinastilwell" target="_blank"
