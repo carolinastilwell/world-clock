@@ -1,10 +1,22 @@
-let londonElementDate = document.querySelector("#london .date");
-londonElementDate.innerHTML = moment()
-  .tz("Europe/London")
-  .format("Do of MMMM, YYYY");
+function updateTime(cityId, timeZone) {
+  let cityElementDate = document.querySelector(`#${cityId} .date`);
+  let cityElementTime = document.querySelector(`#${cityId} .time`);
 
-let londonElementTime = document.querySelector("#london .time");
-londonElementTime.innerHTML = moment().tz("Europe/London").format("hh:mm:ss");
+  if (cityElementDate && cityElementTime) {
+    cityElementDate.innerHTML = moment()
+      .tz(`${timeZone}`)
+      .format("Do of MMMM, YYYY");
 
-let londonElementUnit = document.querySelector("#london .time small");
-londonElementUnit.innerHTML = moment().tz("Europe/London").format("A");
+    cityElementTime.innerHTML = moment()
+      .tz(`${timeZone}`)
+      .format("h:mm:ss [<small>]A[</small]");
+  }
+}
+
+function updateCities() {
+  updateTime("london", "Europe/London");
+  updateTime("sao-paulo", "America/Sao_Paulo");
+  updateTime("toronto", "America/Toronto");
+}
+
+setInterval(updateCities, 1000);
