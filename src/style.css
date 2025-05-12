@@ -29,7 +29,7 @@ select {
   border-radius: 4px;
   width: 100%;
   padding: 15px 20px;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 10px;
   border: 1px solid #b8b8dd;
 }
@@ -42,22 +42,25 @@ select {
   border-bottom: 1px dashed #b8b8dd;
 }
 
+.date {
+  font-size: 10px;
+}
 .city:last-child {
   border-bottom: none;
 }
 
 h2 {
   margin: 0 0 5px;
-  font-size: 28px;
+  font-size: 20px;
 }
 
 .time {
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .time small {
-  font-size: 15px;
+  font-size: 10px;
   vertical-align: middle;
 }
 .date {
