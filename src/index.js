@@ -20,17 +20,23 @@ function updateCities() {
 }
 setInterval(updateCities, 1000);
 
+let currentCityInterval;
+
 function updateCity(event) {
-  setInterval(function () {
-    let cityTimeZone = event.target.value;
-    if (cityTimeZone === "current") {
-      cityTimeZone = moment.tz.guess();
-    }
+  clearInterval(currentCityInterval);
+
+  let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
+  let citiesElement = document.querySelector("#cities");
+
+  function updateSelectedCityTime() {
     let cityName = cityTimeZone.replace(/_/g, " ").split("/")[1];
     let cityTime = moment().tz(cityTimeZone);
-    let citiesElement = document.querySelector("#cities");
+
     citiesElement.innerHTML = `
-           <div class="city">
+    <div class="city">
           <div>
             <h2>${cityName}</h2>
             <div class="date">${cityTime.format("Do of MMMM, YYYY")}</div>
@@ -38,9 +44,19 @@ function updateCity(event) {
           <div class="time">${cityTime.format("h:mm:ss [<small>]A[</small>]")}
             </div>
              </div>
+              <div class="back"><a href="#" id="back-link">🔙 Back to all cities</a></div>
 
-      `;
-  }, 1000);
+              `;
+    let backLink = document.querySelector("#back-link");
+    backLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      clearInterval(currentCityInterval);
+      location.reload();
+    });
+  }
+
+  updateSelectedCityTime();
+  currentCityInterval = setInterval(updateSelectedCityTime, 1000);
 }
 
 let citySelect = document.querySelector("#city");
